@@ -1,0 +1,66 @@
+import { useContext } from "react";
+import { StyledButton, StyledContainer, StyledInput } from "./style";
+import SearchContext from "../../contexts/SearchContext";
+import axios from "axios";
+
+function SearchForm() {
+
+    const key = 'e509edbaa4d396c2f26a43f8b58da272';
+
+    const {city, setCity, stateCode, setStateCode, countryCode, setCountryCode} = useContext(SearchContext);
+
+    async function handlePost(event){
+        event.preventDefault();
+        
+        let url = `http://api.openweathermap.org/geo/1.0/direct?q=${city},${stateCode},${countryCode}&appid=${key}`;
+
+        if(stateCode == "" && countryCode == "")
+            url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${key}`
+
+        try{
+            const city = await axios.get(url)
+            const data = city.data;
+
+            if(data.length > 0){
+                const first = data[0];
+
+                const latitude = first.lat;
+                const longitude = first.lon;
+                console.log('Lat: ', first.lat);
+                console.log('Lon: ', first.lon);
+
+                const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`)
+
+                console.log(response.data);// temperatura em kelvin
+            }
+        }
+        catch(error)
+        {
+            console.error("Erro ao buscar dados: ", error)
+        }
+    }
+
+    return(
+        <StyledContainer onSubmit={handlePost}>
+            <StyledInput 
+                placeholder="City*" 
+                required 
+                value={city} 
+                onChange={e => setCity(e.target.value)}
+            />
+            <StyledInput 
+                placeholder="State Code" 
+                value={stateCode}
+                onChange={e => setStateCode(e.target.value)}
+            />
+            <StyledInput 
+                placeholder="Country Code" 
+                value={countryCode}
+                onChange={e => setCountryCode(e.target.value)}
+            />
+            <StyledButton>Search</StyledButton>
+        </StyledContainer>
+    )
+}
+
+export default SearchForm;
