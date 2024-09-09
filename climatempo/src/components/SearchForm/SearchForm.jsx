@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { StyledButton, StyledContainer, StyledInput } from "./style";
 import SearchContext from "../../contexts/SearchContext";
 import axios from "axios";
+// import getCity from "../../Functions/getCity";
+// import getCoords from "../../Functions/getCoords";
 
 function SearchForm() {
 
@@ -21,6 +23,8 @@ function SearchForm() {
             const city = await axios.get(url)
             const data = city.data;
 
+            console.log(data);//debug
+
             if(data.length > 0){
                 const first = data[0];
 
@@ -39,6 +43,12 @@ function SearchForm() {
             console.error("Erro ao buscar dados: ", error)
         }
     }
+
+    // const cityResponse = getCity(city, stateCode, countryCode, key);
+    // const coordsResponse = getCoords(cityResponse, key);
+
+    // console.log(cityResponse);
+    // console.log(coordsResponse);
 
     return(
         <StyledContainer onSubmit={handlePost}>
