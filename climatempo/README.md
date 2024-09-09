@@ -9,6 +9,6 @@ Currently, two official plugins are available:
 
 sempre instalar: 
 
-    ``` npm i styled-components axios react-router-dom web-vitals```
+    ` npm i styled-components axios react-router-dom web-vitals`
 
 API-KEY - e509edbaa4d396c2f26a43f8b58da272
