@@ -14,12 +14,16 @@ export const StyledIcon = styled.img`
 
 `
 
+export const StyledRow = styled.div`
+    
+`
+
 export const StyledCard = styled.div`
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     height: 60vh;
     width: 80vw;
-    border-radius: 50px;
+    border-radius: 30px;
     background-color: cadetblue;
 `
