@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { StyledCard, StyledContainer, StyledFont, StyledIcon, StyledRow } from "./style";
 import WeatherContext from "../../contexts/WeatherContext";
 import SearchContext from "../../contexts/SearchContext";
+import ThemeContext from "../../contexts/ThemeContext";
 
 function Weather() {
     const {
@@ -16,10 +17,11 @@ function Weather() {
     } = useContext(WeatherContext);
 
     const { city } = useContext(SearchContext);
+    const { card } = useContext(ThemeContext);
 
     return (
         <StyledContainer>
-            <StyledCard>
+            <StyledCard color={card}>
                 <StyledRow>
                     <StyledIcon src={`https://openweathermap.org/img/wn/${icon}@2x.png`} />
                     <StyledFont style={{ fontSize: '5vh' }} color="white">{city}</StyledFont>

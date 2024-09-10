@@ -38,6 +38,6 @@ export const StyledCard = styled.div`
     flex-direction: column;
     flex-wrap: wrap;
     border-radius: 30px;
-    background-color: cadetblue;
+    background-color: ${props => props.color};
     padding: 20px;
 `

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledNav = styled.div`
-    background-color: #80bed1;
+    background-color: ${props=> props.color}; //#80bed1 #462d74
     height: 6vh;
     align-content: center;
     justify-content: space-between;

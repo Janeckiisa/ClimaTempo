@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledContainer = styled.form`
-    background-color: #79a8d1;
+    background-color: ${props => props.color};
     padding: 30px;
     place-content: center;
     place-items: center;

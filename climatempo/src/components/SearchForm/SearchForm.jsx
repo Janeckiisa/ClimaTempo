@@ -2,10 +2,11 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { StyledButton, StyledContainer, StyledInput } from "./style";
 import SearchContext from "../../contexts/SearchContext";
+import WeatherContext from "../../contexts/WeatherContext";
+import ThemeContext from "../../contexts/ThemeContext";
 import { KelvinToCelsius } from "../../Functions/KelvinToCelsius";
 import getCoords from "../../Functions/getCoords";
 import getCity from "../../Functions/getCity";
-import WeatherContext from "../../contexts/WeatherContext";
 
 function SearchForm() {
     const key = 'e509edbaa4d396c2f26a43f8b58da272';
@@ -25,6 +26,8 @@ function SearchForm() {
         setName,
         setDescription
     } = useContext(WeatherContext);
+
+    const {card} = useContext(ThemeContext);
 
     const navigate = useNavigate();
 
@@ -63,7 +66,7 @@ function SearchForm() {
     }
 
     return (
-        <StyledContainer onSubmit={handlePost}>
+        <StyledContainer onSubmit={handlePost} color={card}>
             <StyledInput
                 placeholder="City*"
                 required
