@@ -50,12 +50,6 @@ function SearchForm() {
         }
     }
 
-    // const cityResponse = getCity(city, stateCode, countryCode, key);
-    // const coordsResponse = getCoords(cityResponse, key);
-
-    // console.log(cityResponse);
-    // console.log(coordsResponse);
-
     return(
         <StyledContainer onSubmit={handlePost}>
             <StyledInput 
