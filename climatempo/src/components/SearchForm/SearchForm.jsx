@@ -51,7 +51,7 @@ function SearchForm() {
                 setMinTemp(KelvinToCelsius(weatherData.main.temp_min));
                 setHumidity(weatherData.main.humidity);
                 setName(weatherData.weather[0].main);
-                setDescription(weatherData.weather[0].description);
+                setDescription(weatherData.weather[0].description);//coloar todos os sets em função separada
 
                 console.log(`Temperatura agora em ${city}: `, KelvinToCelsius(weatherData.main.temp));
 
