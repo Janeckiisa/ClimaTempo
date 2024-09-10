@@ -1,52 +1,31 @@
 import { useContext } from "react";
 import { StyledButton, StyledContainer, StyledInput } from "./style";
 import SearchContext from "../../contexts/SearchContext";
-import axios from "axios";
 import { KelvinToCelsius } from "../../Functions/KelvinToCelsius";
-// import getCity from "../../Functions/getCity";
-// import getCoords from "../../Functions/getCoords";
+import getCoords from "../../Functions/getCoords";
+import getCity from "../../Functions/getCity";
 
 function SearchForm() {
-
     const key = 'e509edbaa4d396c2f26a43f8b58da272';
-
     const {city, setCity, stateCode, setStateCode, countryCode, setCountryCode} = useContext(SearchContext);
 
     async function handlePost(event){
         event.preventDefault();
         
-        let url = `http://api.openweathermap.org/geo/1.0/direct?q=${city},${stateCode},${countryCode}&appid=${key}`;
-
-        if(stateCode == "" && countryCode == "")
-            url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${key}`
-
         try{
-            const cidade = await axios.get(url)
-            const data = cidade.data;
+            const cityData = await getCity(city, stateCode, countryCode, key);
 
-            console.log(data);//debug
-
-            console.log(city.data);
-
-            if(data.length > 0){
-                const first = data[0];
-
+            if(cityData.length > 0){
+                const first = cityData[0];
                 const latitude = first.lat;
                 const longitude = first.lon;
-                console.log('Lat: ', first.lat);
-                console.log('Lon: ', first.lon);
 
-                const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`)
-
-                console.log(response.data);// temperatura em kelvin
-
-                const newData = response.data;
-
-                console.log(`Temperatura agora em ${city}: `, KelvinToCelsius(newData.main.temp_max))
+                const weatherData = await getCoords(latitude, longitude, key);
+                console.log(`Temperatura agora em ${city}: `, KelvinToCelsius(weatherData.main.temp_max))
             }
-        }
-        catch(error)
-        {
+            console.log("Cidade não encontrada.");
+            
+        }catch(error){
             console.error("Erro ao buscar dados: ", error)
         }
     }
