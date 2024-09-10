@@ -20,8 +20,8 @@ function SearchForm() {
             url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${key}`
 
         try{
-            const city = await axios.get(url)
-            const data = city.data;
+            const cidade = await axios.get(url)
+            const data = cidade.data;
 
             console.log(data);//debug
 
@@ -36,6 +36,10 @@ function SearchForm() {
                 const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`)
 
                 console.log(response.data);// temperatura em kelvin
+
+                const newData = response.data;
+
+                console.log(`Temperatura agora em ${city}: `, (newData.main.temp_max) - 273)
             }
         }
         catch(error)
