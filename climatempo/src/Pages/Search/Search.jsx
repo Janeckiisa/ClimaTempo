@@ -1,10 +1,11 @@
 import SearchForm from "../../components/SearchForm/SearchForm";
+import { StyledContainer } from "./styles";
 
 function Search() {
     return(
-        <div>
+        <StyledContainer>
             <SearchForm />
-        </div>
+        </StyledContainer>
     )
 }
 

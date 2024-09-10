@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { StyledButton, StyledContainer, StyledInput } from "./style";
 import SearchContext from "../../contexts/SearchContext";
 import axios from "axios";
+// import getCity from "../../Functions/getCity";
+// import getCoords from "../../Functions/getCoords";
 
 function SearchForm() {
 
@@ -18,8 +20,10 @@ function SearchForm() {
             url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${key}`
 
         try{
-            const city = await axios.get(url)
-            const data = city.data;
+            const cidade = await axios.get(url)
+            const data = cidade.data;
+
+            console.log(data);//debug
 
             console.log(city.data);
 
@@ -34,6 +38,10 @@ function SearchForm() {
                 const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`)
 
                 console.log(response.data);// temperatura em kelvin
+
+                const newData = response.data;
+
+                console.log(`Temperatura agora em ${city}: `, (newData.main.temp_max) - 273)
             }
         }
         catch(error)
@@ -41,6 +49,12 @@ function SearchForm() {
             console.error("Erro ao buscar dados: ", error)
         }
     }
+
+    // const cityResponse = getCity(city, stateCode, countryCode, key);
+    // const coordsResponse = getCoords(cityResponse, key);
+
+    // console.log(cityResponse);
+    // console.log(coordsResponse);
 
     return(
         <StyledContainer onSubmit={handlePost}>
