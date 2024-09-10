@@ -27,7 +27,7 @@ export const StyledFont = styled.div`
     font-weight: 400;
     font-style: normal;
     font-size: ${props => props.style};
-    color: ${props}
+    color: ${props => props.color};
 `
 
 export const StyledCard = styled.div`

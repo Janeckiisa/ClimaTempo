@@ -1,25 +1,12 @@
 import axios from "axios";
 
-async function getCoords(data){
+async function getCoords(lat, lon, key){
     try{
-        if(data.length > 0){
-            const first = data[0];
-
-            const latitude = first.lat;
-            const longitude = first.lon;
-            console.log('Lat: ', latitude);
-            console.log('Lon: ', longitude);
-
-            const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`)
-
-            console.log(response.data);// temperatura em kelvin
-
-            return response.data;
-        }
-    }
-    catch(error)
-    {
-        console.error("Erro ao buscar dados: ", error)
+        const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}`)
+        return response.data;
+    } catch(error){
+        console.error("Erro ao buscar dados: ", error);
+        throw error;
     }
 }
 

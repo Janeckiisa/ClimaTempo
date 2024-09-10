@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { StyledButton, StyledContainer, StyledInput } from "./style";
 import SearchContext from "../../contexts/SearchContext";
 import axios from "axios";
+import { KelvinToCelsius } from "../../Functions/KelvinToCelsius";
 // import getCity from "../../Functions/getCity";
 // import getCoords from "../../Functions/getCoords";
 
@@ -41,7 +42,7 @@ function SearchForm() {
 
                 const newData = response.data;
 
-                console.log(`Temperatura agora em ${city}: `, (newData.main.temp_max) - 273)
+                console.log(`Temperatura agora em ${city}: `, KelvinToCelsius(newData.main.temp_max))
             }
         }
         catch(error)

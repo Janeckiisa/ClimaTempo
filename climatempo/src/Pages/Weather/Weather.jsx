@@ -5,6 +5,7 @@ function Weather() {
 
     const icon = '10d'
 
+    //usar toFixed(1) para corrigir temperaturas
 
     return(
         <StyledContainer>
