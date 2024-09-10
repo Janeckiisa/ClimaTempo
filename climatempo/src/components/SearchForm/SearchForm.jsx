@@ -21,6 +21,8 @@ function SearchForm() {
             const city = await axios.get(url)
             const data = city.data;
 
+            console.log(city.data);
+
             if(data.length > 0){
                 const first = data[0];
 
