@@ -1,4 +1,4 @@
-import { StyledCard, StyledContainer, StyledIcon } from "./style";
+import { StyledCard, StyledContainer, StyledFont, StyledIcon, StyledRow } from "./style";
 
 function Weather() {
     //https://openweathermap.org/img/wn/10d@2x.png
@@ -9,8 +9,10 @@ function Weather() {
     return(
         <StyledContainer>
             <StyledCard>
-                <StyledIcon src={`https://openweathermap.org/img/wn/${icon}@2x.png`} />
-                São José dos pinhais
+                <StyledRow>
+                    <StyledIcon src={`https://openweathermap.org/img/wn/${icon}@2x.png`} />
+                    <StyledFont style={{fontSize: '80px'}}>São José dos pinhais</StyledFont>
+                </StyledRow>
             </StyledCard>
         </StyledContainer>
     )

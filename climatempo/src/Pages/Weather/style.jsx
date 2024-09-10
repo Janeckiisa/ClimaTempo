@@ -15,7 +15,19 @@ export const StyledIcon = styled.img`
 `
 
 export const StyledRow = styled.div`
-    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+`
+
+export const StyledFont = styled.div`
+    font-family: "Outfit", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: ${props => props.style};
+    color: ${props}
 `
 
 export const StyledCard = styled.div`
