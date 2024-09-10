@@ -5,5 +5,5 @@ export const StyledContainer = styled.div`
     flex-direction: column;
     flex-wrap: wrap;
     place-content: center;
-    height: 90vh;
+    height: 83.8vh;
 `

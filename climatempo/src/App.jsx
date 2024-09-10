@@ -7,6 +7,7 @@ import { WeatherContextProvider } from './contexts/WeatherContext.jsx';
 import ThemeContext, { ThemeContextProvider } from './contexts/ThemeContext.jsx';
 import { StyledMain } from './style.jsx';
 import { useContext } from 'react';
+import Footer from './components/Footer/Footer.jsx';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function AppContent() {
         <Route path='/' element={<Search />} />
         <Route path='/weather' element={<Weather />} />
       </Routes>
+      <Footer />
     </StyledMain>
   );
 }
