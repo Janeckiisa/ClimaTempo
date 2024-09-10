@@ -8,7 +8,8 @@ function NavBar() {
         icon, setIcon,
         bg, setBg,
         header, setHeader,
-        card, setCard
+        card, setCard,
+        button, setButton
     } = useContext(ThemeContext);
 
     function handleTheme() {
@@ -17,6 +18,7 @@ function NavBar() {
         setCard(card === "#79a8d1" ? "#492258" : "#79a8d1");
         setIcon(icon === "/Dark.png" ? "/Light.png" : "/Dark.png");
         setBg(bg === "#fff" ? "#1c1a36" : "#fff");
+        setButton(button === "#3e6e99" ? "#2f0a49" : "#3e6e99");
     }
 
     return (

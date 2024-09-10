@@ -35,7 +35,7 @@ export const StyledButton = styled.button`
     border: none;
     height: 30px;
     border-radius: 5px;
-    background-color: #3e6e99;
+    background-color: ${props => props.color};
     cursor: pointer;
     color: #fff;
 

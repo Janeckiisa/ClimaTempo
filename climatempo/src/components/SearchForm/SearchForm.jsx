@@ -27,7 +27,7 @@ function SearchForm() {
         setDescription
     } = useContext(WeatherContext);
 
-    const {card} = useContext(ThemeContext);
+    const {card, button} = useContext(ThemeContext);
 
     const navigate = useNavigate();
 
@@ -83,7 +83,7 @@ function SearchForm() {
                 value={countryCode}
                 onChange={e => setCountryCode(e.target.value)}
             />
-            <StyledButton>Search</StyledButton>
+            <StyledButton color={button}>Search</StyledButton>
         </StyledContainer>
     )
 }

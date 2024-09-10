@@ -4,7 +4,7 @@ const ThemeContext = createContext();
 
 export const ThemeContextProvider = ({children}) => {
     const [icon, setIcon] = useState("/Dark.png");
-    const [button, setButton] = useState("");
+    const [button, setButton] = useState("#3e6e99");
     const [bg, setBg] = useState("#fff");
     const [header, setHeader] = useState("#80bed1");
     const [card, setCard] = useState("#79a8d1");
