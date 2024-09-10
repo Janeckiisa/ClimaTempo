@@ -24,7 +24,7 @@ export const StyledRow = styled.div`
 
 export const StyledFont = styled.div`
     font-family: "Outfit", sans-serif;
-    font-weight: 400;
+    font-weight: 200;
     font-style: normal;
     font-size: ${props => props.style};
     color: ${props => props.color};

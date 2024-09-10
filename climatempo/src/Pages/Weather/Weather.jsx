@@ -29,6 +29,9 @@ function Weather() {
                     <StyledIcon src={`https://openweathermap.org/img/wn/${icon}@2x.png`} />
                     <StyledFont style={{fontSize: '80px'}} color="white">{city}</StyledFont>
                 </StyledRow>
+                <StyledRow>
+                    <StyledFont>{temp}°</StyledFont>
+                </StyledRow>
             </StyledCard>
         </StyledContainer>
     )

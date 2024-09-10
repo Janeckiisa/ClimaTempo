@@ -42,10 +42,10 @@ function SearchForm() {
                 const weatherData = await getCoords(latitude, longitude, key);
 
                 setIcon(weatherData.weather[0].icon);
-                setFeelsLike(weatherData.main.feels_like);
-                setTemp(weatherData.main.temp);
-                setMaxTemp(weatherData.main.temp_max);
-                setMinTemp(weatherData.main.temp_min);
+                setFeelsLike(KelvinToCelsius(weatherData.main.feels_like));
+                setTemp(KelvinToCelsius(weatherData.main.temp));
+                setMaxTemp(KelvinToCelsius(weatherData.main.temp_max));
+                setMinTemp(KelvinToCelsius(weatherData.main.temp_min));
                 setHumidity(weatherData.main.humidity);
                 setName(weatherData.weather[0].main);
                 setDescription(weatherData.weather[0].description);
