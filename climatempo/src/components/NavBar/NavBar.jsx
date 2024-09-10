@@ -14,7 +14,7 @@ function NavBar() {
                     <StyledFont>Climatempo</StyledFont>
                 </StyledItem>
             </StyledNavBar>
-            <StyledIcon src="/search.png" onClick={navigate('/')}/>
+            <StyledIcon src="/search.png"/>
             <StyledIcon src="/Dark.png"/>
         </StyledNav>
     );
