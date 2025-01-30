@@ -11,7 +11,7 @@ async function getCity(city, stateCode, countryCode, key){
         const city = await axios.get(url)
         return city.data;
     }catch(error){
-        console.error("Erro ao buscar dados: ", error);
+        console.error("Erro ao buscar dados da cidade: ", error);
         throw error;
     }
 }
